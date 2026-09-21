@@ -1,0 +1,334 @@
+
+
+/* ═══════════════════════════════════════════════
+   Camveritas — design system : "le reçu"
+   Encre chaude + papier + améthyste profond. Un seul accent.
+   ═══════════════════════════════════════════════ */
+:root {
+  --paper:      #F4F1EA;  /* papier chaud */
+  --paper-2:    #EDE8DD;  /* papier ombré (lignes de reçu) */
+  --ink-1:      #1A1714;  /* encre — titres, chiffres */
+  --ink-2:      #45403A;  /* corps */
+  --ink-3:      #857E73;  /* secondaire, labels */
+  --line:       #DED7C9;  /* filets */
+  --accent:     #5B3E8C;  /* améthyste profond — accent unique */
+  --accent-2:   #7A5BB0;
+  --accent-line:#D3C6E4;
+  --accent-wash:#EDE6F3;
+  --cost:       #B87333;  /* ambre — les vrais chiffres de coût */
+  --veritas:    #2F7D5B;  /* vert sobre — positif */
+  --danger:     #A83B32;  /* rouge sobre */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #1C1B21;   /* ardoise chaude, pas noir — repose l'oeil */
+    --paper-2:    #24232B;   /* surfaces légèrement surélevées */
+    --ink-1:      #E4E1EA;   /* blanc cassé doux, pas blanc pur */
+    --ink-2:      #B0ADBB;   /* corps, contraste confortable */
+    --ink-3:      #817E8C;   /* secondaire */
+    --line:       #322F3A;   /* filets discrets */
+    --accent:     #A98FD4;   /* améthyste clair désaturé */
+    --accent-2:   #BCA6E2;
+    --accent-line:#3D3648;
+    --accent-wash:#262130;
+    --cost:       #D3A06A;   /* ambre adouci */
+    --veritas:    #6FB894;   /* vert doux */
+    --danger:     #D08A82;   /* rouge doux */
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  background-color: var(--paper);
+  color: var(--ink-1);
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* Titres : Fraunces, le caractère éditorial */
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  color: var(--ink-1);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+/* Les chiffres de coût s'alignent comme sur un relevé */
+.tnum { font-variant-numeric: tabular-nums; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+/* Wordmark : signature manuscrite, toujours en italique */
+.brand { font-family: 'Caveat', cursive; font-style: italic; font-weight: 700; letter-spacing: 0; }
+.brand .v { color: var(--accent); }
+a { color: var(--accent); }
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #141319;
+  color: #E7E4EC;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #141319;
+}
+::-webkit-scrollbar-thumb {
+  background: #39353F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B4E9E;
+}
+
+::selection {
+  background: rgba(107, 78, 158, 0.3);
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ===== NAV LINK HOVER ===== */
+
+.nav-link {
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #fff !important;
+}
+
+/* ===== NAVIGATION ===== */
+
+.desktop-nav { display: flex; }
+.mobile-menu-btn { display: none; }
+.mobile-menu { display: none; }
+
+/* ===== TABLET — 1024px ===== */
+
+@media (max-width: 1024px) {
+  .desktop-nav { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
+  .mobile-menu.open { display: flex !important; }
+}
+
+/* ===== MOBILE — 768px ===== */
+
+@media (max-width: 768px) {
+
+  /* ── Grids ── */
+  .grid-5-col { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-4-col { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-3-col { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .pros-cons-grid { grid-template-columns: 1fr !important; }
+  .payment-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .compare-header-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .compare-data-grid { grid-template-columns: 1fr !important; }
+  .vpn-hero-stats { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .vpn-does-doesnt { grid-template-columns: 1fr !important; }
+  .vpn-stats-grid { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .vpn-features-grid { grid-template-columns: 1fr !important; }
+  .vpn-compare-grid { grid-template-columns: 1fr !important; }
+  .vpn-card-header { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+  .vpn-cta { flex-direction: column !important; align-items: stretch !important; }
+  .vpn-cta a { text-align: center !important; width: 100% !important; display: block !important; }
+  .shame-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Review page ── */
+  .review-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+  }
+  .review-page-title { font-size: 27px !important; }
+  .review-meta { justify-content: center !important; }
+  .review-actions { flex-direction: column !important; align-items: stretch !important; }
+  .review-actions a,
+  .review-actions button { text-align: center !important; }
+
+  /* ── Compare page ── */
+  .compare-score-display {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .compare-score-num { font-size: 31px !important; }
+  .compare-vs { font-size: 15px !important; }
+  .score-row-grid {
+    grid-template-columns: 60px 1fr 60px !important;
+  }
+  .data-row-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 4px !important;
+  }
+
+  /* ── Typography ── */
+  .hero-title { font-size: 31px !important; }
+  .page-title { font-size: 27px !important; }
+  .section-title { font-size: 19px !important; }
+
+  /* ── Spacing ── */
+  .page-container { padding: 24px 16px !important; }
+  .card-padding { padding: 16px !important; }
+
+  /* ── Best-of page ── */
+  .bestof-rank { font-size: 19px !important; width: 36px !important; }
+  .bestof-card { padding: 16px !important; }
+  .bestof-stats { flex-direction: column !important; gap: 6px !important; }
+  .bestof-pros { display: none !important; }
+  .bestof-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+  .bestof-actions a { text-align: center !important; }
+
+  /* ── Safety page ── */
+  .safety-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* ── Internal links ── */
+  .internal-links {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .internal-links a { text-align: center !important; }
+
+  /* ── SmartLink CTA ── */
+  .smartlink-cta { padding: 20px 16px !important; }
+  .smartlink-cta a { padding: 14px 24px !important; width: 100% !important; display: block !important; text-align: center !important; }
+
+  /* ── Homepage ── */
+  .hero-buttons {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .hero-buttons a { text-align: center !important; }
+}
+
+/* ===== SMALL MOBILE — 480px ===== */
+
+@media (max-width: 480px) {
+
+  /* ── Grids ── */
+  .grid-5-col { grid-template-columns: 1fr !important; }
+  .grid-4-col { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .payment-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .safety-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Typography ── */
+  .hero-title { font-size: 23px !important; }
+  .page-title { font-size: 23px !important; }
+  .review-page-title { font-size: 23px !important; }
+
+  /* ── Spacing ── */
+  .page-container { padding: 16px 12px !important; }
+
+  /* ── Compare ── */
+  .score-row-grid {
+    grid-template-columns: 50px 1fr 50px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ===== TOUCH DEVICES ===== */
+
+@media (hover: none) {
+  .site-tooltip { display: none !important; }
+}
+
+/* ===== WCAG — FOCUS VISIBLE ===== */
+
+*:focus-visible {
+  outline: 2px solid #6B4E9E;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6B4E9E;
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #6B4E9E;
+  outline-offset: 1px;
+}
+
+/* ===== HEADINGS GLOBAL STYLE ===== */
+
+h1 {
+  background: linear-gradient(135deg, #6B4E9E, #8A6DBF) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+h2 {
+  color: #6B4E9E !important;
+  font-size: 23px;
+}
+
+a[style*="textDecoration"] > h2:hover,
+a[style*="textDecoration"] > h3:hover,
+a[style*="text-decoration"] > h2:hover,
+a[style*="text-decoration"] > h3:hover { color: #FBBF24 !important; cursor: pointer; }
+.nav-link:hover span { color: #FBBF24 !important; }
+a:hover { color: #FBBF24 !important; }
+/* Corps de review (markdown rendu) */
+.review-body { font-size: 15.5px; line-height: 1.72; color: var(--ink-2); max-width: 720px; }
+.review-body h2 { font-size: 21px; margin: 34px 0 12px; color: var(--ink-1); }
+.review-body p { margin: 0 0 16px; }
+.review-body strong { color: var(--ink-1); font-weight: 600; }
+.review-body ul { margin: 0 0 18px; padding-left: 0; list-style: none; }
+.review-body ul li { position: relative; padding-left: 20px; margin-bottom: 10px; }
+.review-body ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+
+/* ═══ Page d'accueil : tout le texte narratif centré ═══ */
+/* Centre titres, paragraphes, listes de la home — sauf le tableau (données) */
+.home-centered h1,
+.home-centered h2,
+.home-centered h3,
+.home-centered > header p,
+.home-centered > section > p {
+  text-align: center;
+}
+/* Les cartes "How to read this" : texte centré aussi */
+.home-centered section > div > div p,
+.home-centered section > div > div h3 {
+  text-align: center;
+}
+/* Le tableau comparatif garde son alignement à gauche (lisibilité des chiffres) */
+.home-centered table th,
+.home-centered table td {
+  text-align: left;
+}
+/* La note sous le tableau + le disclaimer calc restent centrés */
+.home-centered .review-note { text-align: center; }
