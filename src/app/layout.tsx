@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: '3RyAmrQUoGh6mo5UXxPC7AVFp0XYq0-ThVkxGs8Xwh0',
+  },
   other: {
     // Honest adult classification — declared site-wide, on purpose.
     rating: 'adult',
