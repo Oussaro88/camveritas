@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   verification: {
     google: '3RyAmrQUoGh6mo5UXxPC7AVFp0XYq0-ThVkxGs8Xwh0',
+    yandex: '7cd03b9db3a8fb6b',
+    other: {
+      'msvalidate.01': 'F716213D78CA14DC93E5D994C8A37C6A',
+    },
   },
   other: {
     // Honest adult classification — declared site-wide, on purpose.
