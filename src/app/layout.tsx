@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { WebsiteSchema } from '@/components/SchemaMarkup';
 import { SITE_CONFIG } from '@/lib/config';
@@ -61,6 +62,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
         <WebsiteSchema />
         {children}
+        <Script
+          defer
+          src="https://umami-one-tau.vercel.app/script.js"
+          data-website-id="dd724479-e5da-4d95-a9ad-25c9b34e6df4"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
